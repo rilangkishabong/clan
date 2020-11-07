@@ -7,21 +7,24 @@ const useStyles = makeStyles((theme) => ({}));
 
 function Input(props) {
   const classes = useStyles();
-  const { label, name, ...rest } = props;
+  const { label, name, type, ...rest } = props;
   return (
-    <Field name={name} {...rest}>
+    <Field name={name}>
       {(props) => {
         const { field, form, meta } = props;
+        console.log(form);
         return (
           <TextField
             id={name}
             label={label}
             className={classes.textField}
             fullWidth
-            margin="normal"
+            type={type}
+            margin="dense"
             {...field}
             error={meta.touched && !!meta.error}
             helperText={meta.touched && !!meta.error ? meta.error : ""}
+            variant="outlined"
           />
         );
       }}

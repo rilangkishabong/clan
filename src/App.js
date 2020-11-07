@@ -1,12 +1,27 @@
-import { Button } from "@material-ui/core";
 import React from "react";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { AuthorizedRoute } from "./Auth";
+import Home from "./Home";
+import SignIn from "./SignIn";
+import { SignUp } from "./SignUp";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./AppProvider/Theme";
+import { CssBaseline } from "@material-ui/core";
 
-function App() {
+export const App = () => {
   return (
-    <Button variant="contained" color="primary">
-      Hello World
-    </Button>
+    <React.StrictMode>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <AuthorizedRoute path="/" component={Home} />
+            <Redirect to="/signup" />
+          </Switch>
+        </BrowserRouter>
+      </ThemeProvider>
+    </React.StrictMode>
   );
-}
-
-export default App;
+};
