@@ -1,3 +1,4 @@
+import React from "react";
 import {
   AppBar,
   Button,
@@ -13,41 +14,43 @@ import {
   AddCircle as AddClanIcon,
 } from "@material-ui/icons";
 
-export const Navbar = () => {
-return (
-<AppBar position="static" color="secondary">
-  <Toolbar variant="dense">
-    <IconButton edge="start" color="inherit">
-      <MenuIcon />
-    </IconButton>
-    <Typography variant="h6" noWrap>
-      Clan-Relations
-    </Typography>
-    <div className={classes.grow} />
+export const Navbar = ({ history }) => {
+  const classes = useStyles();
+  return (
+    <AppBar position="static" color="secondary">
+      <Toolbar variant="dense">
+        <IconButton edge="start" color="inherit">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" noWrap>
+          Clan-Relations
+        </Typography>
+        <div className={classes.grow} />
 
-    <Tooltip title="Add a Clan">
-      <IconButton
-        color="inherit"
-        onClick={() => history.push("/clan")}
-        variant="outlined"
-      >
-        <AddClanIcon />
-      </IconButton>
-    </Tooltip>
+        <Tooltip title="Add a Clan">
+          <IconButton
+            color="inherit"
+            onClick={() => history.push("/clan")}
+            variant="outlined"
+          >
+            <AddClanIcon />
+          </IconButton>
+        </Tooltip>
 
-    <Button
-      variant="text"
-      color="inherit"
-      onClick={() => history.push("/clan/hello")}
-    >
-      Show Clans
-    </Button>
+        <Button
+          variant="text"
+          color="inherit"
+          onClick={() => history.push("/clan/hello")}
+        >
+          Show Clans
+        </Button>
 
-    <Tooltip title="logout">
-      <IconButton color="inherit" onClick={() => history.push("/signin")}>
-        <LogoutIcon />
-      </IconButton>
-    </Tooltip>
-  </Toolbar>
-</AppBar>;
-}
+        <Tooltip title="logout">
+          <IconButton color="inherit" onClick={() => history.push("/signin")}>
+            <LogoutIcon />
+          </IconButton>
+        </Tooltip>
+      </Toolbar>
+    </AppBar>
+  );
+};
