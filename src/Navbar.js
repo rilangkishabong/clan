@@ -46,7 +46,13 @@ export const Navbar = ({ history }) => {
         </Button>
 
         <Tooltip title="logout">
-          <IconButton color="inherit" onClick={() => history.push("/signin")}>
+          <IconButton
+            color="inherit"
+            onClick={() => {
+              localStorage.removeItem("token");
+              history.push("/signin");
+            }}
+          >
             <LogoutIcon />
           </IconButton>
         </Tooltip>
