@@ -1,5 +1,4 @@
 const { makeStyles } = require("@material-ui/core");
-const { common, red, yellow, blue } = require("@material-ui/core/colors");
 
 export const useStyles = makeStyles({
   background: {
