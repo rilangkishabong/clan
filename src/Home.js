@@ -3,10 +3,12 @@ import { Route, Switch } from "react-router-dom";
 import { CreateClan } from "./Components/clan/CreateClan";
 import { Logout } from "./Components/Logout";
 import { ClanList } from "./Components/clan/ClanList";
+import { Navbar } from "./Navbar";
 
 export const Home = ({ history }) => {
   return (
     <div>
+      <Navbar />
       <Switch>
         <Route path="/clan" exact component={CreateClan} />
         <Route path="/clan/hello" component={ClanList} />
