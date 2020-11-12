@@ -8,9 +8,9 @@ import { Navbar } from "./Navbar";
 export const Home = ({ history }) => {
   return (
     <div>
-      <Navbar />
+      <Navbar history={history} />
       <Switch>
-        <Route path="/clan" exact component={CreateClan} />
+        <Route path="/home/clan" exact component={CreateClan} />
         <Route path="/clan/hello" component={ClanList} />
         <Route path="/clan/logout" component={Logout} />
       </Switch>
