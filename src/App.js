@@ -17,7 +17,7 @@ export const App = () => {
           <Switch>
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
-            <AuthorizedRoute path="/home" component={Home} />
+            <AuthorizedRoute path="/" component={Home} />
             <Redirect to="/signup" />
           </Switch>
         </BrowserRouter>
