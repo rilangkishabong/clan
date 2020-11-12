@@ -30,7 +30,7 @@ export const Navbar = ({ history }) => {
         <Tooltip title="Add a Clan">
           <IconButton
             color="inherit"
-            onClick={() => history.push("/clan")}
+            onClick={() => history.push("/home/clan")}
             variant="outlined"
           >
             <AddClanIcon />
