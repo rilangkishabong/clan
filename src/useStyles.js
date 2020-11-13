@@ -10,4 +10,10 @@ export const useStyles = makeStyles({
   grow: {
     flexGrow: 1,
   },
+  cover: {
+    minHeight: 100,
+  },
+  root: {
+    minHeight: 150,
+  },
 });
