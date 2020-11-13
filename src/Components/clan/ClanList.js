@@ -1,7 +1,11 @@
+import { Box, Grid } from "@material-ui/core";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useStyles } from "../../useStyles";
+import { ClanCard } from "./ClanCard";
 
-export const ClanList = () => {
+export const ClanList = ({ history }) => {
+  const classes = useStyles();
   const [load, setLoad] = useState(true);
   const [clans, setClans] = useState(null);
 
@@ -24,12 +28,15 @@ export const ClanList = () => {
     };
     getClan();
   }, []);
+
   return (
-    <div>
-      {!load &&
-        clans.map((clan, index) => (
-          <div key={index}>{`${clan.name} ${clan.origin}`}</div>
-        ))}
-    </div>
+    <Box mx={2} my={2}>
+      <Grid container spacing={2} justify="center">
+        {!load &&
+          clans.map((clan) => {
+            return <ClanCard {...clan} key={clan._id} />;
+          })}
+      </Grid>
+    </Box>
   );
 };
