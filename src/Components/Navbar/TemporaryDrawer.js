@@ -28,7 +28,7 @@ const TemporaryDrawer = ({ opened, toggleDrawer, history }) => {
             button
             onClick={() => {
               toggleDrawer();
-              history.push("/home");
+              history.push("/");
             }}
           >
             <HomeIcon />
@@ -42,7 +42,7 @@ const TemporaryDrawer = ({ opened, toggleDrawer, history }) => {
             button
             onClick={() => {
               toggleDrawer();
-              history.push("/clan/hello");
+              history.push("/clan/list");
             }}
           >
             <PeopleIcon />

@@ -10,9 +10,10 @@ export const Home = ({ history }) => {
     <div>
       <Navbar history={history} />
       <Switch>
-        <Route path="/home/clan" exact component={CreateClan} />
-        <Route path="/clan/hello" component={ClanList} />
-        <Route path="/clan/logout" component={Logout} />
+        <Route path="/clan/create" exact component={CreateClan} />
+        <Route path="/clan/list" component={ClanList} />
+        <Route path="/logout" component={Logout} />
+        <Route path="/clan/update"
       </Switch>
     </div>
   );
