@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Form, Formik } from "formik";
 import React from "react";
 import * as Yup from "yup";
-import FormikControl from "./../Formik/FormikControl";
+import FormikControl from "./../../Components/Formik/FormikControl";
 
 export const CreateClan = () => {
   const initialValues = {

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { AuthorizedRoute } from "./Auth/Auth";
-import Home from "./Home";
+import Home from "./Pages/Home/Home";
 import SignIn from "./Auth/SignIn";
 import { SignUp } from "./Auth/SignUp";
 import { ThemeProvider } from "@material-ui/core/styles";

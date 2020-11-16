@@ -1,7 +1,7 @@
 import { Box, Grid } from "@material-ui/core";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useStyles } from "../../useStyles";
+import { useStyles } from "./useStyles";
 import { ClanCard } from "./ClanCard";
 
 export const ClanList = ({ history }) => {

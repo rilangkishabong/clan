@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { CreateClan } from "./Components/clan/CreateClan";
-import { Logout } from "./Components/Logout";
-import { ClanList } from "./Components/clan/ClanList";
-import { Navbar } from "./Components/Navbar/Navbar";
+import { Logout } from "../../Components/Logout";
+import { Navbar } from "../../Components/Navbar/Navbar";
+import { ClanList } from "../clan/ClanList";
+import { CreateClan } from "../clan/CreateClan";
 
 export const Home = ({ history }) => {
   return (
