@@ -25,7 +25,6 @@ const TemporaryDrawer = ({ opened, toggleDrawer, history }) => {
         <Divider />
         <ListItem>
           <ListItemIcon
-            button
             onClick={() => {
               toggleDrawer();
               history.push("/");
@@ -39,7 +38,6 @@ const TemporaryDrawer = ({ opened, toggleDrawer, history }) => {
 
         <ListItem>
           <ListItemIcon
-            button
             onClick={() => {
               toggleDrawer();
               history.push("/clan/list");
