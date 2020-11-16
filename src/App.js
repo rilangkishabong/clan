@@ -5,7 +5,7 @@ import Home from "./Pages/Home/Home";
 import SignIn from "./Auth/SignIn";
 import { SignUp } from "./Auth/SignUp";
 import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "./AppProvider/Theme";
+import theme from "./Provider/Theme";
 import { CssBaseline } from "@material-ui/core";
 export const App = () => {
   return (
