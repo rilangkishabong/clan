@@ -6,7 +6,6 @@ import React from "react";
 import * as Yup from "yup";
 
 export const ClanForm = ({ match, isEdit = false }) => {
-  console.log(match);
   const initialValues = {
     name: "",
     origin: "",
