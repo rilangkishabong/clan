@@ -4,7 +4,6 @@ import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-material-ui";
 import React from "react";
 import * as Yup from "yup";
-import FormikControl from "../Components/Formik/FormikControl";
 import { useStyles } from "./useStyles";
 
 export const SignUp = ({ history }) => {

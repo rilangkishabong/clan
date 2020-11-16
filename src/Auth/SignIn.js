@@ -1,7 +1,6 @@
 import { Button, Card, CardContent, Grid, Typography } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
 import React from "react";
-import FormikControl from "./../Components/Formik/FormikControl";
 import * as Yup from "yup";
 import Axios from "axios";
 import { useStyles } from "./useStyles";
