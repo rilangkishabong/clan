@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { AuthorizedRoute } from "./Auth";
+import { AuthorizedRoute } from "./Auth/Auth";
 import Home from "./Home";
-import SignIn from "./SignIn";
-import { SignUp } from "./SignUp";
+import SignIn from "./Auth/SignIn";
+import { SignUp } from "./Auth/SignUp";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./AppProvider/Theme";
 import { CssBaseline } from "@material-ui/core";
-
 export const App = () => {
   return (
     <React.StrictMode>
