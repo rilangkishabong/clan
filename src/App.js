@@ -7,20 +7,23 @@ import { SignUp } from "./Auth/SignUp";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./Provider/Theme";
 import { CssBaseline } from "@material-ui/core";
+import AppProvider from "./Provider/AppProvider";
 export const App = () => {
   return (
     <React.StrictMode>
       <CssBaseline />
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <AuthorizedRoute path="/" component={Home} />
-            <Redirect to="/signup" />
-          </Switch>
-        </BrowserRouter>
-      </ThemeProvider>
+      <AppProvider>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/signin" component={SignIn} />
+              <Route path="/signup" component={SignUp} />
+              <AuthorizedRoute path="/" component={Home} />
+              <Redirect to="/signup" />
+            </Switch>
+          </BrowserRouter>
+        </ThemeProvider>
+      </AppProvider>
     </React.StrictMode>
   );
 };
