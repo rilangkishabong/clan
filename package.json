@@ -11,6 +11,7 @@
     "axios": "^0.21.0",
     "classnames": "^2.2.6",
     "formik": "^2.2.1",
+    "formik-material-ui": "^3.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-modal-hook": "^3.0.0",
