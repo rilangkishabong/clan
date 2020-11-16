@@ -1,12 +1,12 @@
 import { Button, Card, CardContent, Grid, Typography } from "@material-ui/core";
-import Axios from "axios";
-import { Form, Formik } from "formik";
+import { Formik, Form } from "formik";
 import React from "react";
+import FormikControl from "./../Components/Formik/FormikControl";
 import * as Yup from "yup";
-import FormikControl from "./Components/Formik/FormikControl";
+import Axios from "axios";
 import { useStyles } from "./useStyles";
 
-export const SignUp = ({ history }) => {
+function SignIn({ history }) {
   const classes = useStyles();
   const initialValues = {
     username: "",
@@ -16,9 +16,10 @@ export const SignUp = ({ history }) => {
     username: Yup.string().required("username is required"),
     password: Yup.string().required("password is required"),
   });
+
   const onSubmit = async (values, onSubmitProps) => {
     console.log(values);
-    const url = "https://localhost:3002/signup";
+    const url = "https://localhost:3002/signin";
     const options = {
       method: "POST",
       headers: {},
@@ -30,11 +31,11 @@ export const SignUp = ({ history }) => {
       const { data } = await Axios(options);
       console.log(data.token);
       localStorage.setItem("token", data.token);
+      history.push("/home");
     } catch (e) {
       console.error(e);
     }
   };
-
   return (
     <Grid
       container
@@ -42,7 +43,7 @@ export const SignUp = ({ history }) => {
       justify="center"
       className={classes.background}
     >
-      <Grid container item direction="row" justify="center">
+      <Grid container justify="center">
         <Grid item md={3}>
           <Card>
             <CardContent>
@@ -73,16 +74,17 @@ export const SignUp = ({ history }) => {
                         variant="contained"
                         color="secondary"
                         fullWidth
+                        disabled={!props.isValid}
                       >
-                        Sign-up
+                        Sign-in
                       </Button>
                       <Button
                         variant="text"
                         color="secondary"
                         fullWidth
-                        onClick={() => history.push("/signin")}
+                        onClick={() => history.push("/signup")}
                       >
-                        Already a user? Sign-in
+                        Not registered? Sign-up
                       </Button>
                     </Form>
                   );
@@ -94,4 +96,6 @@ export const SignUp = ({ history }) => {
       </Grid>
     </Grid>
   );
-};
+}
+
+export default SignIn;
