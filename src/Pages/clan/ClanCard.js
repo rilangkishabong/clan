@@ -12,9 +12,8 @@ import {
   Typography,
 } from "@material-ui/core";
 
-export const ClanCard = (clan) => {
+export const ClanCard = ({ clan, history }) => {
   const classes = useStyles();
-
   const trimString = (str, min) => {
     if (str.length < min) {
       return str;
@@ -46,8 +45,12 @@ export const ClanCard = (clan) => {
           </CardActionArea>
 
           <CardActions>
-            <Button size="small" color="primary">
-              Share
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => history.push(`/clan/update/${clan._id}`)}
+            >
+              Edit
             </Button>
             <Button size="small" color="primary">
               Learn More

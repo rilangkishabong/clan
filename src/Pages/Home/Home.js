@@ -4,6 +4,7 @@ import { Logout } from "../../Components/Logout";
 import { Navbar } from "../../Components/Navbar/Navbar";
 import { ClanList } from "../clan/ClanList";
 import { CreateClan } from "../clan/CreateClan";
+import { UpdateClan } from "../clan/UpdateClan";
 
 export const Home = ({ history }) => {
   return (
@@ -13,7 +14,7 @@ export const Home = ({ history }) => {
         <Route path="/clan/create" exact component={CreateClan} />
         <Route path="/clan/list" component={ClanList} />
         <Route path="/logout" component={Logout} />
-        <Route path="/clan/update"
+        <Route path="/clan/update/:id" component={UpdateClan} />
       </Switch>
     </div>
   );

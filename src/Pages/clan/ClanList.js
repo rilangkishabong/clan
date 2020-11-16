@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useStyles } from "./useStyles";
 import { ClanCard } from "./ClanCard";
 
-export const ClanList = ({ history }) => {
+export const ClanList = (props) => {
   const classes = useStyles();
   const [load, setLoad] = useState(true);
   const [clans, setClans] = useState(null);
@@ -34,7 +34,7 @@ export const ClanList = ({ history }) => {
       <Grid container spacing={2} justify="center">
         {!load &&
           clans.map((clan) => {
-            return <ClanCard {...clan} key={clan._id} />;
+            return <ClanCard {...{ clan }} {...props} key={clan._id} />;
           })}
       </Grid>
     </Box>
