@@ -1,6 +1,7 @@
 import { Button, Card, CardContent, Typography } from "@material-ui/core";
 import Axios from "axios";
-import { Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
+import { TextField } from "formik-material-ui";
 import React from "react";
 import * as Yup from "yup";
 import FormikControl from "./../../Components/Formik/FormikControl";
@@ -46,8 +47,22 @@ export const CreateClan = () => {
           {() => {
             return (
               <Form>
-                <FormikControl control="input" label="name" name="name" />
-                <FormikControl control="input" label="origin" name="origin" />
+                <Field
+                  component={TextField}
+                  label="name"
+                  name="name"
+                  variant="outlined"
+                  margin="dense"
+                  fullWidth
+                />
+                <Field
+                  component={TextField}
+                  label="origin"
+                  name="origin"
+                  variant="outlined"
+                  margin="dense"
+                  fullWidth
+                />
                 <Button
                   type="submit"
                   variant="contained"
