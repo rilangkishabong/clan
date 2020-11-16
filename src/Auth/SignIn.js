@@ -1,10 +1,11 @@
 import { Button, Card, CardContent, Grid, Typography } from "@material-ui/core";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import React from "react";
 import FormikControl from "./../Components/Formik/FormikControl";
 import * as Yup from "yup";
 import Axios from "axios";
 import { useStyles } from "./useStyles";
+import { TextField } from "formik-material-ui";
 
 function SignIn({ history }) {
   const classes = useStyles();
@@ -58,16 +59,21 @@ function SignIn({ history }) {
                 {(props) => {
                   return (
                     <Form>
-                      <FormikControl
-                        control="input"
+                      <Field
+                        component={TextField}
                         label="username"
                         name="username"
+                        variant="outlined"
+                        margin="dense"
+                        fullWidth
                       />
-                      <FormikControl
-                        control="input"
+                      <Field
+                        component={TextField}
                         label="password"
                         name="password"
-                        type="password"
+                        variant="outlined"
+                        margin="dense"
+                        fullWidth
                       />
                       <Button
                         type="submit"

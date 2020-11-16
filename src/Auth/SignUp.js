@@ -1,6 +1,7 @@
 import { Button, Card, CardContent, Grid, Typography } from "@material-ui/core";
 import Axios from "axios";
-import { Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
+import { TextField } from "formik-material-ui";
 import React from "react";
 import * as Yup from "yup";
 import FormikControl from "../Components/Formik/FormikControl";
@@ -57,16 +58,19 @@ export const SignUp = ({ history }) => {
                 {(props) => {
                   return (
                     <Form>
-                      <FormikControl
-                        control="input"
+                      <Field
+                        component={TextField}
                         label="username"
                         name="username"
+                        variant="outlined"
+                        margin="dense"
                       />
-                      <FormikControl
-                        control="input"
+                      <Field
+                        component={TextField}
                         label="password"
                         name="password"
-                        type="password"
+                        variant="outlined"
+                        margin="dense"
                       />
                       <Button
                         type="submit"
