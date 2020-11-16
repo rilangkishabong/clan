@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { CreateClan } from "./Components/clan/CreateClan";
 import { Logout } from "./Components/Logout";
 import { ClanList } from "./Components/clan/ClanList";
-import { Navbar } from "./Navbar";
+import { Navbar } from "./Components/Navbar/Navbar";
 
 export const Home = ({ history }) => {
   return (
