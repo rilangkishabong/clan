@@ -34,14 +34,9 @@ const theme = createMuiTheme({
 });
 
 const AppProvider = ({ children }) => {
-  const [logged, setLogged] = useState(
-    localStorage.getItem("logged")
-      ? localStorage.getItem("logged") === "true"
-      : false
-  );
   return (
     <ThemeProvider theme={theme}>
-      <Provider value={{ logged, setLogged }}>{children}</Provider>
+      <Provider>{children}</Provider>
     </ThemeProvider>
   );
 };
