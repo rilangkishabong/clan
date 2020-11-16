@@ -5,7 +5,8 @@ import { TextField } from "formik-material-ui";
 import React from "react";
 import * as Yup from "yup";
 
-export const ClanForm = ({ isEdit = false }) => {
+export const ClanForm = ({ match, isEdit = false }) => {
+  console.log(match);
   const initialValues = {
     name: "",
     origin: "",
@@ -14,14 +15,15 @@ export const ClanForm = ({ isEdit = false }) => {
     name: Yup.string().required("Name is required"),
     origin: Yup.string().required("Origin is required"),
   });
+
   const onSubmit = async (values, onSubmitProps) => {
     console.log(values);
-    const url = "https://localhost:3002/api/clan/";
+    const url = "https://localhost:3002/api/clan";
     const options = {
-      method: "POST",
+      method: isEdit ? "PUT" : "POST",
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       data: values,
-      url: url,
+      url: isEdit ? `${url}/${match.params.id}` : url,
     };
 
     try {
@@ -66,7 +68,7 @@ export const ClanForm = ({ isEdit = false }) => {
               color="secondary"
               fullWidth
             >
-              Register Clan
+              {isEdit ? "Update Clan" : "Register Clan"}
             </Button>
           </Form>
         );
