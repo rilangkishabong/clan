@@ -68,6 +68,7 @@ function SignIn({ history }) {
                       />
                       <Field
                         component={TextField}
+                        type="password"
                         label="password"
                         name="password"
                         variant="outlined"

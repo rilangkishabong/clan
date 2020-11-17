@@ -30,6 +30,7 @@ export const SignUp = ({ history }) => {
       const { data } = await Axios(options);
       console.log(data.token);
       localStorage.setItem("token", data.token);
+      history.push("/");
     } catch (e) {
       console.error(e);
     }
@@ -66,6 +67,7 @@ export const SignUp = ({ history }) => {
                       />
                       <Field
                         component={TextField}
+                        type="password"
                         label="password"
                         name="password"
                         variant="outlined"
