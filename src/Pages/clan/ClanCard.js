@@ -7,10 +7,14 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Dialog,
+  DialogContent,
   Grid,
   Paper,
   Typography,
 } from "@material-ui/core";
+import { useModal } from "react-modal-hook";
+import { ClanForm } from "./ClanForm";
 
 export const ClanCard = ({ clan, history }) => {
   const classes = useStyles();
@@ -21,6 +25,16 @@ export const ClanCard = ({ clan, history }) => {
       return str.substring(0, 9).concat("...");
     }
   };
+
+  const [showUpdateModal, hideUpdateModal] = useModal(
+    ({ in: open, onExited }) => (
+      <Dialog open={open} onClose={hideUpdateModal}>
+        <DialogContent>
+          <ClanForm />
+        </DialogContent>
+      </Dialog>
+    )
+  );
 
   return (
     <Grid item xs={11} sm={6} md={3} lg={4} key={clan._id}>
@@ -45,11 +59,7 @@ export const ClanCard = ({ clan, history }) => {
           </CardActionArea>
 
           <CardActions>
-            <Button
-              size="small"
-              color="primary"
-              onClick={() => history.push(`/clan/update/${clan._id}`)}
-            >
+            <Button size="small" color="primary" onClick={showUpdateModal}>
               Edit
             </Button>
             <Button size="small" color="primary">
