@@ -14,20 +14,18 @@ export const App = () => {
   return (
     <React.StrictMode>
       <CssBaseline />
-      <ModalProvider rootComponent={TransitionGroup}>
-        <AppProvider>
-          <ThemeProvider theme={theme}>
-            <BrowserRouter>
-              <Switch>
-                <Route path="/signin" component={SignIn} />
-                <Route path="/signup" component={SignUp} />
-                <AuthorizedRoute path="/" component={Home} />
-                <Redirect to="/signup" />
-              </Switch>
-            </BrowserRouter>
-          </ThemeProvider>
-        </AppProvider>
-      </ModalProvider>
+      <ThemeProvider theme={theme}>
+        <ModalProvider rootComponent={TransitionGroup}>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/signin" component={SignIn} />
+              <Route path="/signup" component={SignUp} />
+              <AuthorizedRoute path="/" component={Home} />
+              <Redirect to="/signup" />
+            </Switch>
+          </BrowserRouter>
+        </ModalProvider>
+      </ThemeProvider>
     </React.StrictMode>
   );
 };
