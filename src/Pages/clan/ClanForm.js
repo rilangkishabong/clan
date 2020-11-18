@@ -5,7 +5,7 @@ import { TextField } from "formik-material-ui";
 import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 
-export const ClanForm = ({ id, isEdit = false, refresh, onClose }) => {
+export const ClanForm = ({ id, isEdit = false, refresh, onClose, history }) => {
   const [clan, setClan] = useState(null);
   const initialValues = {
     name: "",
@@ -31,8 +31,9 @@ export const ClanForm = ({ id, isEdit = false, refresh, onClose }) => {
       if (isEdit) {
         refresh();
         onClose();
+      } else {
+        history.push("/clan/list");
       }
-      console.log(res);
     } catch (e) {
       console.error(e);
     }
