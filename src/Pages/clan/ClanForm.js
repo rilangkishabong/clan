@@ -2,10 +2,11 @@ import { Button, Typography } from "@material-ui/core";
 import Axios from "axios";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-material-ui";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 
-export const ClanForm = ({ match, isEdit = false }) => {
+export const ClanForm = ({ id, isEdit = false, refresh, onClose }) => {
+  const [clan, setClan] = useState(null);
   const initialValues = {
     name: "",
     origin: "",
@@ -22,22 +23,46 @@ export const ClanForm = ({ match, isEdit = false }) => {
       method: isEdit ? "PUT" : "POST",
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       data: values,
-      url: isEdit ? `${url}/${match.params.id}` : url,
+      url: isEdit ? `${url}/${id}` : url,
     };
 
     try {
       const res = await Axios(options);
+      if (isEdit) {
+        refresh();
+        onClose();
+      }
       console.log(res);
     } catch (e) {
       console.error(e);
     }
   };
 
+  useEffect(() => {
+    const getClan = async () => {
+      const url = `https://localhost:3002/api/clan/${id}`;
+      const options = {
+        method: "GET",
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+        url: url,
+      };
+      try {
+        const { data } = await Axios(options);
+        console.log(data);
+        setClan(data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    getClan();
+  }, []);
+
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={clan || initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
+      enableReinitialize
     >
       {() => {
         return (
