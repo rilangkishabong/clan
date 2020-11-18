@@ -6,10 +6,10 @@ import { ClanList } from "../clan/ClanList";
 import { CreateClan } from "../clan/CreateClan";
 import { UpdateClan } from "../clan/UpdateClan";
 
-export const Home = ({ history }) => {
+export const Home = (props) => {
   return (
     <div>
-      <Navbar history={history} />
+      <Navbar {...props} />
       <Switch>
         <Route path="/clan/create" exact component={CreateClan} />
         <Route path="/clan/list" component={ClanList} />
