@@ -52,4 +52,4 @@ const TemporaryDrawer = ({ opened, toggleDrawer, history }) => {
   );
 };
 
-export const SideBarWithRouter = withRouter(TemporaryDrawer);
+export const SideBarWithRouter = TemporaryDrawer;
