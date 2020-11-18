@@ -8,6 +8,11 @@ export const ClanList = (props) => {
   const classes = useStyles();
   const [load, setLoad] = useState(true);
   const [clans, setClans] = useState(null);
+  const [render, setRender] = useState(false);
+
+  const refresh = () => {
+    setRender((render) => !render);
+  };
 
   useEffect(() => {
     const getClan = async () => {
@@ -27,14 +32,21 @@ export const ClanList = (props) => {
       }
     };
     getClan();
-  }, []);
+  }, [render]);
 
   return (
     <Box mx={2} my={2}>
       <Grid container spacing={2} justify="center">
         {!load &&
           clans.map((clan) => {
-            return <ClanCard {...{ clan }} {...props} key={clan._id} />;
+            return (
+              <ClanCard
+                {...{ refresh }}
+                {...{ clan }}
+                {...props}
+                key={clan._id}
+              />
+            );
           })}
       </Grid>
     </Box>
