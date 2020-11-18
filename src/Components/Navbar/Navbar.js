@@ -15,8 +15,9 @@ import {
 } from "@material-ui/icons";
 import { SideBarWithRouter } from "./TemporaryDrawer";
 
-export const Navbar = ({ history }) => {
+export const Navbar = ({ history, ...rest }) => {
   const classes = useStyles();
+  console.log(rest);
   const [opened, setOpened] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -58,7 +59,12 @@ export const Navbar = ({ history }) => {
           </Tooltip>
         </Toolbar>
       </AppBar>
-      <SideBarWithRouter opened={opened} toggleDrawer={handleDrawerToggle} />
+      <SideBarWithRouter
+        opened={opened}
+        toggleDrawer={handleDrawerToggle}
+        history={history}
+        {...rest}
+      />
     </div>
   );
 };
