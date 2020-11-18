@@ -15,8 +15,9 @@ import {
 } from "@material-ui/core";
 import { useModal } from "react-modal-hook";
 import { ClanForm } from "./ClanForm";
+import { ClanFormDialog } from "./ClanFormDialog";
 
-export const ClanCard = ({ clan, history }) => {
+export const ClanCard = ({ clan, ...rest }) => {
   const classes = useStyles();
   const trimString = (str, min) => {
     if (str.length < min) {
@@ -26,15 +27,17 @@ export const ClanCard = ({ clan, history }) => {
     }
   };
 
-  const [showUpdateModal, hideUpdateModal] = useModal(
-    ({ in: open, onExited }) => (
-      <Dialog open={open} onClose={hideUpdateModal}>
-        <DialogContent>
-          <ClanForm />
-        </DialogContent>
-      </Dialog>
-    )
-  );
+  const [
+    showUpdateModal,
+    hideUpdateModal,
+  ] = useModal(({ in: open, onExited }) => (
+    <ClanFormDialog
+      {...rest}
+      open={open}
+      onClose={hideUpdateModal}
+      id={clan._id}
+    />
+  ));
 
   return (
     <Grid item xs={11} sm={6} md={3} lg={4} key={clan._id}>
